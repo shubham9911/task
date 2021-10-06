@@ -59,26 +59,33 @@ function Form() {
 		localStorage.setItem('TaskInfo', JSON.stringify(submit));
 	};
 
-
 	return (
 		<div>
-			<div className='form'>
-				<input placeholder='name' onChange={(e) => setName(e.target.value)} />
+			<div className='col-6 mx-auto'>
+				<input
+					className='form-control m-3'
+					placeholder='name'
+					onChange={(e) => setName(e.target.value)}
+				/>
 				{hobbies.map((item) => (
-					<div key={item.id}>
+					<div className='text-center' key={item.id}>
 						<input
+							className='form-control m-3'
 							placeholder='Hobby'
 							value={item.hobby}
 							onChange={(e) => handleHobby(e, item.id)}
 						/>
 
 						<input
+							className='form-control m-3'
 							placeholder='Image URL'
 							value={item.imgUrl}
 							onChange={(e) => handleImg(e, item.id)}
 						/>
 						{hobbies.length > 1 ? (
-							<button onClick={() => remHobbies(item.id)}>
+							<button
+								className='btn btn-danger'
+								onClick={() => remHobbies(item.id)}>
 								Remove Hobbies
 							</button>
 						) : (
@@ -86,9 +93,15 @@ function Form() {
 						)}
 					</div>
 				))}
-				<button onClick={addHobbies}>Add Hobbies</button>
+				<div className='text-center'>
+					<button className='btn btn-success m-3' onClick={addHobbies}>
+						Add Hobbies
+					</button>
 
-				<button onClick={handleSubmit}>Submit</button>
+					<button className='btn btn-primary m-3' onClick={handleSubmit}>
+						Submit
+					</button>
+				</div>
 			</div>
 		</div>
 	);

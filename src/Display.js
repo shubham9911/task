@@ -10,13 +10,21 @@ function Display({ jsonData }) {
 				: {}
 		);
 	}, [jsonData]);
-	console.log(data);
+	// console.log(data);
 	return (
-		<div>
+		<div className='col-6 mx-auto '>
 			{data?.users?.map((item) => (
-				<h1>{item.name}</h1>
+				<div className='w-100 info-card my-2'>
+					<h1 className='text-left'>Name : {item.name}</h1>
+					<h2>Hobbies:</h2>
+					{item.info.map((item2) => (
+						<div className='row'>
+							<h3 className='col-4'>{item2.hobby}</h3>
+							<img className='col-8 my-2' alt='img' src={item2.imgUrl}/>
+						</div>
+					))}
+				</div>
 			))}
-			<h1>sdfhkj</h1>
 		</div>
 	);
 }

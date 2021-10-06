@@ -7,3 +7,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.info-card{
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 5px;
+}
